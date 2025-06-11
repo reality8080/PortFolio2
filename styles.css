@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+
+:root {
+  --font-family: "EB Garamond", serif;
+
+  --primary-color: #38a3a5;
+  --secondary-color: #80ed99;
+  --text-color: #c7f9cc;
+  --text-alter-color: #000000;
+  --background-color: #22577a;
+  --emerald-color: #57cc99;
+
+  --font-size-s: 0.9rem;
+  --font-size-n: 1rem;
+  --font-size-m: 1.2rem;
+  --font-size-l: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 3rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+
+  --border-radius-s: 8px;
+  --border-radius-m: 35px;
+  --border-radius-circle: 50%;
+}
+
+.navbar {
+  font-family: var(--font-family);
+  font-size: var(--font-size-n);
+  background-color: var(--background-color);
+  padding: 1rem;
+}
+
+.navbar.scrolled {
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .navbar-brand {
+  color: var(--text-color);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+.navbar .nav-link {
+  color: var(--text-alter-color);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-item {
+  background-color: var(--secondary-color);
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-m);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: #80ed99 1px solid;
+  transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--emerald-color);
+}
+
+.navbar .nav-item:hover {
+  background-color: var(--background-color);
+  border: #38a3a5 1px solid;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.hero-section {
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.hero-section .mb-3 {
+  color: var(--emerald-color);
+}
+
+.hero-section .special-text {
+  color: var(--secondary-color);
+  font-weight: var(--font-weight-bold);
+}
+.hero-section .hero-text {
+  color: var(--text-color);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-extra-bold);
+}
