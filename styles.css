@@ -1,95 +1,316 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;700&display=swap");
 
+/* ---
+1. BIẾN TOÀN CỤC & THIẾT LẬP CHUNG
+--- */
 :root {
-  --font-family: "EB Garamond", serif;
-
-  --primary-color: #38a3a5;
-  --secondary-color: #80ed99;
-  --text-color: #c7f9cc;
-  --text-alter-color: #000000;
-  --background-color: #22577a;
-  --emerald-color: #57cc99;
-
-  --font-size-s: 0.9rem;
-  --font-size-n: 1rem;
-  --font-size-m: 1.2rem;
-  --font-size-l: 1.5rem;
-  --font-size-xl: 2rem;
-  --font-size-xxl: 3rem;
-
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semi-bold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extra-bold: 800;
-
-  --border-radius-s: 8px;
-  --border-radius-m: 35px;
-  --border-radius-circle: 50%;
+  --heading-font: "Montserrat", sans-serif;
+  --body-font: "Lato", sans-serif;
+  --primary-color: #0081a7; /* Màu xanh dương mặc định của Bootstrap, bạn hãy đổi nó! */
+  --secondary-color: #00afb9; /* Màu xám */
+  --background-color: linear-gradient(
+    135deg,
+    #f5f7fa,
+    #c3cfe2
+  ); /* Màu nền chính */
+  --color-btn: #fed9b7;
+  --text-color: #333333; /* Màu chữ chính */
 }
+html {
+  scroll-behavior: smooth; /* Tạo hiệu ứng cuộn mượt khi bấm link */
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+}
+/* ---
+2. NAVBAR
+--- */
 
 .navbar {
-  font-family: var(--font-family);
-  font-size: var(--font-size-n);
-  background-color: var(--background-color);
-  padding: 1rem;
+  background-color: var(
+    --background-color
+  ) !important; /* Ghi đè class bg-body-tertiary */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Thêm bóng đổ tinh tế */
+  transition: background-color 0.3s ease-in-out;
 }
 
-.navbar.scrolled {
-  background-color: var(--primary-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.navbar-brand {
+  font-weight: bold;
+  color: var(--primary-color) !important;
 }
 
-.navbar .navbar-brand {
-  color: var(--text-color);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  text-decoration: none;
-}
 .navbar .nav-link {
-  color: var(--text-alter-color);
-  font-weight: var(--font-weight-bold);
-  text-decoration: none;
+  color: var(--text-color) !important;
+  font-weight: 500;
+  margin: 0 0.5rem; /* Tạo khoảng cách giữa các link */
+}
+
+/* Thay đổi màu khi link được active hoặc hover */
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* ---
+3. HERO SECTION (HOME)
+--- */
+
+#Home {
+  min-height: 90vh; /* Làm cho section này cao gần bằng màn hình */
+  display: flex;
+  align-items: center; /* Căn giữa nội dung theo chiều dọc */
+}
+
+#Home .display-4 {
+  font-weight: 700; /* Làm cho tiêu đề chính đậm hơn */
+}
+
+/* Tùy chỉnh lại nút bấm chính */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: bold;
+  padding: 12px 24px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #0081a7; /* Một màu đậm hơn màu chính */
+  border-color: #0a58ca;
+  transform: translateY(-2px); /* Hiệu ứng nhấc lên một chút */
+}
+
+/* ---
+4. ABOUT SECTION
+--- */
+
+#About h2,
+#Skills h2,
+#Project h2,
+#Contact h2 {
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px; /* Tạo khoảng trống cho gạch chân */
+  margin-bottom: 3rem !important; /* Tăng khoảng cách với nội dung bên dưới */
+}
+
+#About h2::after,
+#Skills h2::after,
+#Project h2::after,
+#Contact h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+#About p {
+  line-height: 1.8; /* Giãn dòng để dễ đọc hơn */
+  font-size: 1.1rem;
+}
+
+/* ---
+5. SKILLS SECTION
+--- */
+
+#Skills .card-title {
+  font-weight: 700;
+  margin-bottom: 1.5rem; /* Tăng khoảng cách giữa tiêu đề và các badge */
+}
+
+/* Tùy chỉnh icon trong card Kỹ năng */
+#Skills .card-body i {
+  font-size: 3rem; /* Tăng kích thước icon */
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  display: block; /* Để margin-bottom có tác dụng */
+  transition: transform 0.3s ease;
+}
+
+#Skills .card:hover i {
+  transform: scale(1.1); /* Phóng to icon khi hover card */
+}
+
+#Skills .badge {
+  font-size: 0.9rem;
+  padding: 0.6em 1em;
+  margin: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+#Skills .badge:hover {
+  cursor: default;
+  transform: translateY(-2px);
+  filter: brightness(110%);
+}
+
+/* ---
+6. PROJECT SECTION
+--- */
+
+.card {
+  border: 1px solid var(--background-color); /* Thêm một đường viền rất nhạt */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Thêm bóng đổ nhẹ */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Nhấc card lên một chút khi rê chuột */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Bóng đổ đậm hơn */
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  font-weight: bold;
+  padding: 12px 24px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #009aa5; /* Màu đậm hơn của màu xám */
+  border-color: #009aa5;
+  transform: translateY(-2px); /* Hiệu ứng nhấc lên một chút */
+}
+
+/* Đảm bảo các nút trong card-footer có khoảng cách */
+
+/* ---
+7. CONTACT SECTION
+--- */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25); /* Dùng biến màu của Bootstrap */
+}
+
+#Contact form {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Nút Gửi tin nhắn sẽ kế thừa style của .btn-primary đã định nghĩa */
+#Contact button[type="submit"] {
+  width: 100%; /* Làm cho nút rộng hết cỡ */
+  padding: 15px; /* Làm cho nút to và dễ bấm hơn */
+}
+/* ---
+8. FOOTER (CHÂN TRANG)
+--- */
+
+.card-footer {
+  background-color: rgba(
+    254,
+    217,
+    183,
+    0.3
+  ); /* Màu nền nhẹ cho footer của card */
+  border-top: 1px solid rgba(240, 113, 103, 0.2);
+  display: flex;
+  gap: 10px; /* Tạo khoảng cách giữa các nút */
+  justify-content: flex-start;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+/* Thêm style cho social icon nếu bạn muốn thêm vào footer hoặc contact */
+.social-icons a {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin: 0 10px;
   transition: color 0.3s ease;
 }
-
-.navbar .nav-item {
-  background-color: var(--secondary-color);
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius-m);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: #80ed99 1px solid;
-  transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+.social-icons a:hover {
+  color: var(--primary-color);
 }
 
-.navbar .nav-link:hover {
-  color: var(--emerald-color);
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none; /* Ban đầu ẩn đi */
+  z-index: 1000;
 }
 
-.navbar .nav-item:hover {
-  background-color: var(--background-color);
-  border: #38a3a5 1px solid;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: scale(1.05);
+a:focus,
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
-.hero-section {
-  min-height: 100vh;
-  background-color: var(--background-color);
+/* ---
+9. HIỆU ỨNG VÀ RESPONSIVE (NẾU CẦN)
+--- */
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    padding: 1rem 0;
+  }
+
+  /* Điều chỉnh cho màn hình nhỏ hơn (Tablet & Mobile) */
+  h1.display-4 {
+    font-size: 2.5rem; /* Giảm cỡ chữ tiêu đề chính */
+  }
+
+  .hero-section {
+    text-align: center; /* Căn giữa nội dung phần hero */
+  }
+
+  .hero-section img {
+    max-width: 200px;
+  }
+
+  .hero-section .col-md-6 {
+    margin-bottom: 2rem;
+  }
+
+  #Home {
+    min-height: auto; /* Bỏ chiều cao tối thiểu để vừa với nội dung */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  #About p {
+    font-size: 1rem;
+  }
 }
 
-.hero-section .mb-3 {
-  color: var(--emerald-color);
-}
+@media (max-width: 576px) {
+  /* Điều chỉnh thêm cho màn hình điện thoại */
+  #About h2,
+  #Skills h2,
+  #Project h2,
+  #Contact h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem !important;
+  }
 
-.hero-section .special-text {
-  color: var(--secondary-color);
-  font-weight: var(--font-weight-bold);
-}
-.hero-section .hero-text {
-  color: var(--text-color);
-  font-size: var(--font-size-xxl);
-  font-weight: var(--font-weight-extra-bold);
+  .navbar-nav {
+    text-align: center; /* Căn giữa các link trong menu mobile */
+    margin-top: 1rem;
+  }
 }

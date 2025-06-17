@@ -1,102 +1,264 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-
-    <link rel="stylesheet" href="styles.css" />
     <title>Portfolio</title>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <a href="#" class="navbar-brand">My Portfolio</a>
+  <body data-bs-spy="scroll" data-bs-target="#navbarNavAltMarkup">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Portfolio</a>
         <button
           class="navbar-toggler"
           type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"> </span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Skills</a></li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Experience</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Projects</a>
-              </li>
-              <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-            </ul>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+            <a class="nav-link" href="#About">About me</a>
+            <a class="nav-link" href="#Skills">Skills</a>
+            <a class="nav-link" href="#Project">Project</a>
+            <a class="nav-link" href="#Contact">Contact</a>
+            <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
           </div>
         </div>
       </div>
     </nav>
-
-    <section
-      class="hero-section text-center text-light d-flex align-items-center justify-content-center"
-      id="Home"
-    >
+    <section class="hero-section py-5" id="Home">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
-            <h1 class="mb-3">
-              Tôi tên là:
-              <span class="special-text">Nguyễn Trần Thiên Phú</span>
-            </h1>
-            <p class="lead mb-4">Chào mừng bạn đến với portfolio của tôi!</p>
-            <a href="#project" class="btn btn-primary me-3">Xem dự án</a>
-            <a href="cv.pdf" class="btn btn-outline-light">Tải CV</a>
-          </div>
           <div class="col-md-6 text-center">
             <img
               src="Assets/Img/HanBoiThap.jpeg"
-              alt="HanBoiThap"
-              class="img-fluid rounded-circle hero-img"
+              alt="Han Boi Thap"
+              class="img-fluid rounded-circle"
             />
+          </div>
+          <div class="col-md-6">
+            <h1 class="display-4">Nguyễn Trần Thiên Phú</h1>
+            <p class="lead">
+              Một
+              <span id="typing-element"
+                >Lập trình viên Web đam mê xây dựng những ứng dụng đẹp và hữu
+                ích.</span
+              >
+            </p>
+            <a href="#Project" class="btn btn-primary btn-lg">Dự án</a>
           </div>
         </div>
       </div>
     </section>
-
+    <section class="py-5" id="About">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2>Về tôi</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <p>
+              Tôi bắt đầu hành trình lập trình của mình từ [...]. Tôi có một
+              niềm đam mê đặc biệt với việc tối ưu hóa hiệu năng và tạo ra những
+              trải nghiệm người dùng mượt mà. Ngoài công việc, tôi thích đọc
+              sách, chơi game và đóng góp cho các dự án mã nguồn mở.
+            </p>
+            <p>
+              Mục tiêu của tôi là được làm việc trong một môi trường chuyên
+              nghiệp, nơi tôi có thể học hỏi và phát triển các kỹ năng của mình
+              để tạo ra những sản phẩm có giá trị.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-5" id="Skills">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>Kỹ năng</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="bi bi-code-slash"></i> Frontend
+                </h5>
+                <p class="card-text">
+                  <span class="badge bg-primary">HTML5</span>
+                  <span class="badge bg-primary">CSS3</span>
+                  <span class="badge bg-primary">JavaScript (ES6+)</span>
+                  <span class="badge bg-primary">React</span>
+                  <span class="badge bg-primary">Bootstrap 5</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="bi bi-hdd-stack"></i> Backend
+                </h5>
+                <p class="card-text">
+                  <span class="badge bg-success">Node.js</span>
+                  <span class="badge bg-success">Express</span>
+                  <span class="badge bg-success">PHP</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 text-center">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="bi bi-tools"></i> Tools & Databases
+                </h5>
+                <p class="card-text">
+                  <span class="badge bg-info">Git & GitHub</span>
+                  <span class="badge bg-info">MongoDB</span>
+                  <span class="badge bg-info">MySQL</span>
+                  <span class="badge bg-info">Webpack</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-5" id="Project">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>Dự án nổi bật</h2>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="Assets/Img/Ecommerce.jpg"
+                class="card-img-top"
+                alt="Ảnh dự án 1"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Web Bán Hàng</h5>
+                <p class="card-text">
+                  Đây là một trang web thương mại điện tử được xây dựng bằng
+                  React và Node.js, cho phép người dùng xem và mua sản phẩm.
+                </p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Xem trực tiếp</a>
+                <a href="#" class="btn btn-secondary">Mã nguồn</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="Assets/Img/AI.jpg"
+                class="card-img-top"
+                alt="Ảnh dự án 2"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Dự Án AI</h5>
+                <p class="card-text">
+                  Một dự án tìm đường đi được sử dụng trong môi trường xác định
+                  và không xác định.
+                </p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Xem trực tiếp</a>
+                <a href="#" class="btn btn-secondary">Mã nguồn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-5" id="Contact">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>Liên hệ</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <form action="https://formspree.io/f/mnnvzavd" method="post">
+              <div class="mb-3">
+                <label for="nameInput" class="form-label">Tên của bạn</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nameInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="emailInput" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="messageTextarea" class="form-label">Nội dung</label>
+                <textarea
+                  class="form-control"
+                  id="messageTextarea"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Gửi tin nhắn
+              </button>
+              <div id="formMessage" class="mt-3"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="py-4 text-dark text-center">
+      <div class="container">
+        <p class="mb-0">© 2025 Nguyễn Trần Thiên Phú. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <a
+      href="#Home"
+      id="scrollToTopBtn"
+      class="btn btn-primary"
+      aria-label="Quay lại trang đầu"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </a>
+    <script src="Assets/js/bootstrap.bundle.min.js"></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
-      integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
