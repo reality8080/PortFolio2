@@ -54,7 +54,7 @@ const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 window.addEventListener("scroll", () => {
   if (
     document.body.scrollTop > 200 ||
-    document.documentElement.scrollTo > 200
+    document.documentElement.scrollTop > 200
   ) {
     scrollToTopBtn.style.display = "block";
   } else {
@@ -86,37 +86,43 @@ try {
   }
 }
 document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
   const name = document.getElementById("nameInput").value.trim();
   const email = document.getElementById("emailInput").value.trim();
   const message = document.getElementById("messageTextarea").value.trim();
   const formMess = document.getElementById("formMessage");
   if (!name || !email || !message) {
+    e.preventDefault();
     formMess.innerHTML =
       '<div class = "alert alert-danger">Vui lòng điền đầy đủ thông tin.</div>';
     return;
   }
   if (!/^\S+@\S+\.\S+$/.test(email)) {
+    e.preventDefault();
     formMess.innerHTML =
       '<div class = "alert alert-danger">Vui lòng nhập địa chỉ email hợp lệ.</div>';
     return;
   }
   try {
+    e.preventDefault();
     const response = await fetch("https://formspree.io/f/mnnvzavd", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({ name, email, message }),
     });
     if (response.ok) {
       formMess.innerHTML =
-        '<div class = "alert alert-success">Gửi tin nhắn thành công!</div>';
+        '<div class= "alert alert-success">Gửi tin nhắn thành công!</div>';
       e.target.reset();
     } else {
       formMess.innerHTML =
-        '<div class = "alert alert-danger">Gửi tin nhắn thất bại!</div>';
+        '<div class= "alert alert-danger">Gửi tin nhắn thất bại!</div>';
     }
   } catch (error) {
     formMess.innerHTML =
-      '<div class = "alert alert-danger">Lỗi kết nối, vui lòng thử lại.</div>';
+      '<div class= "alert alert-danger">Lỗi kết nối, vui lòng thử lại.</div>';
+    e.target.submit();
   }
 });
