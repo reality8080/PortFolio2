@@ -52,7 +52,10 @@
 // });
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 window.addEventListener("scroll", () => {
-  if (document.body.scroll > 200 || document.documentElement.scrollTo > 200) {
+  if (
+    document.body.scrollTop > 200 ||
+    document.documentElement.scrollTo > 200
+  ) {
     scrollToTopBtn.style.display = "block";
   } else {
     scrollToTopBtn.style.display = "none";
@@ -64,7 +67,7 @@ scrollToTopBtn.addEventListener("click", (e) => {
 });
 try {
   if (document.getElementById("typing-element")) {
-    var typed = new Typed("#typing-element", {
+    new Typed("#typing-element", {
       strings: [
         "Lập trình viên Web.",
         "Người đam mê xây dựng ứng dụng.",
@@ -77,13 +80,16 @@ try {
   }
 } catch (error) {
   console.error("Typed.js bị lỗi không thể chạy được", error);
-  document.getElementById("typing-element").textContent = "Lập trình viên Web.";
+  const typingElement = document.getElementById("typing-element");
+  if (typingElement) {
+    typingElement.textContent = "Lập trình viên Web.";
+  }
 }
-document.querySelector("form").addEventListener("submit", (e) => {
+document.querySelector("form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = document.getElementById("nameInput").value.trim();
   const email = document.getElementById("emailInput").value.trim();
-  const message = document.getElementById("messageInput").value.trim();
+  const message = document.getElementById("messageTextarea").value.trim();
   const formMess = document.getElementById("formMessage");
   if (!name || !email || !message) {
     formMess.innerHTML =
@@ -95,7 +101,22 @@ document.querySelector("form").addEventListener("submit", (e) => {
       '<div class = "alert alert-danger">Vui lòng nhập địa chỉ email hợp lệ.</div>';
     return;
   }
-  formMess.innerHTML =
-    '<div class = "alert alert-danger">Gửi tin nhắn thành công!</div>';
-  e.target.reset();
+  try {
+    const response = await fetch("https://formspree.io/f/mnnvzavd", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+    if (response.ok) {
+      formMess.innerHTML =
+        '<div class = "alert alert-success">Gửi tin nhắn thành công!</div>';
+      e.target.reset();
+    } else {
+      formMess.innerHTML =
+        '<div class = "alert alert-danger">Gửi tin nhắn thất bại!</div>';
+    }
+  } catch (error) {
+    formMess.innerHTML =
+      '<div class = "alert alert-danger">Lỗi kết nối, vui lòng thử lại.</div>';
+  }
 });

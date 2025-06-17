@@ -8,11 +8,8 @@
   --body-font: "Lato", sans-serif;
   --primary-color: #0081a7; /* Màu xanh dương mặc định của Bootstrap, bạn hãy đổi nó! */
   --secondary-color: #00afb9; /* Màu xám */
-  --background-color: linear-gradient(
-    135deg,
-    #f5f7fa,
-    #c3cfe2
-  ); /* Màu nền chính */
+  --background-color: #f5f7fa; /* Màu nền chính */
+  --gradient-background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   --color-btn: #fed9b7;
   --text-color: #333333; /* Màu chữ chính */
 }
@@ -23,7 +20,11 @@ html {
 body {
   font-family: var(--body-font);
   color: var(--text-color);
-  background-color: var(--background-color);
+  background-color: var(--gradient-background);
+}
+
+section {
+  position: relative;
 }
 
 h1,
@@ -218,15 +219,20 @@ h6 {
 
 .card-footer {
   background-color: rgba(
-    254,
-    217,
-    183,
-    0.3
+    0,
+    129,
+    167,
+    0.1
   ); /* Màu nền nhẹ cho footer của card */
-  border-top: 1px solid rgba(240, 113, 103, 0.2);
+  border-top: 1px solid rgba(0, 129, 167, 0.2);
   display: flex;
   gap: 10px; /* Tạo khoảng cách giữa các nút */
   justify-content: flex-start;
+}
+
+.card-footer .btn-primary {
+  background-color: var(--color-btn);
+  border-color: var(--color-btn);
 }
 
 footer {
@@ -296,6 +302,14 @@ button:focus {
 
   #About p {
     font-size: 1rem;
+  }
+
+  #Skills .card-title {
+    font-size: 1.2rem;
+  }
+
+  #Contact form {
+    padding: 1.5rem;
   }
 }
 

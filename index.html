@@ -15,12 +15,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
     <title>Portfolio</title>
   </head>
-  <body data-bs-spy="scroll" data-bs-target="#navbarNavAltMarkup">
+  <body
+    data-bs-spy="scroll"
+    data-bs-target="#navbarNavAltMarkup"
+    data-bs-offset="70"
+  >
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">My Portfolio</a>
+        <a class="navbar-brand" href="#" onclick="return false;"
+          >My Portfolio</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -166,8 +173,12 @@
                 </p>
               </div>
               <div class="card-footer">
-                <a href="#" class="btn btn-primary">Xem trực tiếp</a>
-                <a href="#" class="btn btn-secondary">Mã nguồn</a>
+                <a href="#" class="btn btn-primary" onclick="return false;"
+                  >Xem trực tiếp</a
+                >
+                <a href="#" class="btn btn-secondary" onclick="return false;"
+                  >Mã nguồn</a
+                >
               </div>
             </div>
           </div>
@@ -187,8 +198,12 @@
                 </p>
               </div>
               <div class="card-footer">
-                <a href="#" class="btn btn-primary">Xem trực tiếp</a>
-                <a href="#" class="btn btn-secondary">Mã nguồn</a>
+                <a href="#" class="btn btn-primary" onclick="return false;"
+                  >Xem trực tiếp</a
+                >
+                <a href="#" class="btn btn-secondary" onclick="return false;"
+                  >Mã nguồn</a
+                >
               </div>
             </div>
           </div>
@@ -202,7 +217,11 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            <form action="https://formspree.io/f/mnnvzavd" method="post">
+            <form
+              action="https://formspree.io/f/mnnvzavd"
+              method="post"
+              id="contactForm"
+            >
               <div class="mb-3">
                 <label for="nameInput" class="form-label">Tên của bạn</label>
                 <input
@@ -241,18 +260,31 @@
     </section>
     <footer class="py-4 text-dark text-center">
       <div class="container">
-        <p class="mb-0">© 2025 Nguyễn Trần Thiên Phú. All Rights Reserved.</p>
+        <p class="mb-2">© 2025 Nguyễn Trần Thiên Phú. All Rights Reserved.</p>
+        <div class="social-icons">
+          <a
+            href="https://github.com/your-profile"
+            target="_blank"
+            aria-label="GitHub"
+            ><i class="bi bi-github"></i
+          ></a>
+          <a
+            href="https://linkedin.com/in/your-profile"
+            target="_blank"
+            aria-label="LinkedIn"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+        </div>
       </div>
     </footer>
     <a
       href="#Home"
       id="scrollToTopBtn"
       class="btn btn-primary"
-      aria-label="Quay lại trang đầu"
+      aria-label="Cuộn lên đầu trang"
     >
       <i class="bi bi-arrow-up"></i>
     </a>
-    <script src="Assets/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
