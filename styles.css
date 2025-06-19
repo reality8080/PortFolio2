@@ -20,7 +20,7 @@ html {
 body {
   font-family: var(--body-font);
   color: var(--text-color);
-  background-color: var(--gradient-background);
+  background-color: var(--gradient-background) !important;
 }
 
 section {
@@ -45,6 +45,10 @@ h6 {
   ) !important; /* Ghi đè class bg-body-tertiary */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Thêm bóng đổ tinh tế */
   transition: background-color 0.3s ease-in-out;
+}
+
+.navbar.bg-body-tertiary {
+  background-color: var(--background-color) !important;
 }
 
 .navbar-brand {
@@ -80,16 +84,18 @@ h6 {
 
 /* Tùy chỉnh lại nút bấm chính */
 .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
   font-weight: bold;
   padding: 12px 24px;
   transition: background-color 0.2s, transform 0.2s;
 }
 
 .btn-primary:hover {
-  background-color: #0081a7; /* Một màu đậm hơn màu chính */
-  border-color: #0a58ca;
+  background-color: var(
+    --primary-color
+  ) !important; /* Một màu đậm hơn màu chính */
+  border-color: #0a58ca !important;
   transform: translateY(-2px); /* Hiệu ứng nhấc lên một chút */
 }
 
@@ -118,7 +124,7 @@ h6 {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
   border-radius: 2px;
 }
 
